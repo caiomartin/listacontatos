@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ListaDeContatos</string>
+    <string name="imagem_do_contato">Contatos</string>
+    <string name="avatar">Avatar</string>
+    <string name="nome_contato">Nome Contato</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="imagem_contato">Imagem Contato</string>
+</resources>
