@@ -16,10 +16,10 @@
             android:id="@+id/appBarLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="?android:attr/colorBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="?android:attr/colorBackground">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBarMain"
@@ -31,78 +31,99 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </com.google.android.material.appbar.AppBarLayout>
 
-
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/searchContact"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:text="@string/imagem_do_contato"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textSize="22sp"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/darkTheme"-->
-        <!--            app:layout_constraintHorizontal_bias="0.0"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            tools:hint="@string/pesquisar" />-->
-
-        <!--        <androidx.appcompat.widget.SwitchCompat-->
-        <!--            android:id="@+id/darkTheme"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:thumbTint="@color/switchThumb"-->
-        <!--            app:trackTint="@color/switchTrack" />-->
-
-
         <EditText
             android:id="@+id/etBuscar"
             android:layout_width="387dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_item"
+            android:drawableRight="@drawable/ic_baseline_search_24"
             android:drawablePadding="5dp"
+            android:fontFamily="@font/nunito"
             android:hint="@string/pesquisar"
             android:paddingLeft="12dp"
             android:paddingTop="10dp"
             android:paddingRight="12dp"
             android:paddingBottom="10dp"
             android:singleLine="true"
-            android:textSize="14sp"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-            android:drawableRight="@drawable/ic_baseline_search_24"/>
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBuscar"
+            app:layout_constraintVertical_bias="0.0"
+            >
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+                <include layout="@layout/item_contato_shimmer"></include>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBuscar" />
+            app:layout_constraintTop_toBottomOf="@+id/etBuscar"
+            app:layout_constraintVertical_bias="0.0"
+            app:fastScrollEnabled="true"
+            app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
+            app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="114dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="#FFFFFF" />
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/ic_baseline_add_24" />
 </FrameLayout>

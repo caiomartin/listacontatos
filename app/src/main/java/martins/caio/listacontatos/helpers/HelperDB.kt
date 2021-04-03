@@ -17,11 +17,13 @@ class HelperDB(
 
     val TABLE_NAME = "contato"
     val COLUMNS_ID = "id"
+    val COLUMNS_CODE= "code"
     val COLUMNS_NOME = "nome"
     val COLUMNS_TELEFONE = "telefone"
     val DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
     val CREATE_TABLE = "CREATE TABLE $TABLE_NAME (" +
             "$COLUMNS_ID INTEGER NOT NULL," +
+            "$COLUMNS_CODE TEXT NOT NULL," +
             "$COLUMNS_NOME TEXT NOT NULL," +
             "$COLUMNS_TELEFONE TEXT NOT NULL," +
             "" +
@@ -59,6 +61,7 @@ class HelperDB(
         while(cursor.moveToNext()){
             var contato = ContatosVO(
                 cursor.getInt(cursor.getColumnIndex(COLUMNS_ID)),
+                cursor.getString(cursor.getColumnIndex(COLUMNS_CODE)),
                 cursor.getString(cursor.getColumnIndex(COLUMNS_NOME)),
                 cursor.getString(cursor.getColumnIndex(COLUMNS_TELEFONE))
             )
@@ -72,6 +75,7 @@ class HelperDB(
         val db = writableDatabase ?: return
         var content = ContentValues()
         content.put(COLUMNS_NOME,contato.nome)
+        content.put(COLUMNS_CODE,contato.code)
         content.put(COLUMNS_TELEFONE,contato.telefone)
         db.insert(TABLE_NAME,null,content)
         db.close()
@@ -87,8 +91,8 @@ class HelperDB(
 
     fun updateContato(contato: ContatosVO) {
         val db = writableDatabase ?: return
-        val sql = "UPDATE $TABLE_NAME SET $COLUMNS_NOME = ?, $COLUMNS_TELEFONE = ? WHERE $COLUMNS_ID = ?"
-        val arg = arrayOf(contato.nome,contato.telefone,contato.id)
+        val sql = "UPDATE $TABLE_NAME SET $COLUMNS_NOME = ?, $COLUMNS_CODE = ?, $COLUMNS_TELEFONE = ? WHERE $COLUMNS_ID = ?"
+        val arg = arrayOf(contato.nome, contato.code, contato.telefone,contato.id)
         db.execSQL(sql,arg)
         db.close()
     }

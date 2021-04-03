@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ListaDeContatos</string>
+    <string name="app_name">Contatos</string>
     <string name="imagem_do_contato">Contatos</string>
     <string name="avatar">Avatar</string>
     <string name="nome_contato">Nome Contato</string>

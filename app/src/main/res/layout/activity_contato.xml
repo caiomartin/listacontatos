@@ -7,19 +7,19 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contatoConstraintlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".contato.ContatoActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="?android:attr/colorBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="?android:attr/colorBackground">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBar"
@@ -35,6 +35,12 @@
             android:id="@+id/etNome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="13dp"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/nunito"
+            android:hint="Nome"
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,37 +48,95 @@
 
         <EditText
             android:id="@+id/etTelefone"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="12dp"
+            android:drawableLeft="@drawable/ic_baseline_phone_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/nunito"
+            android:hint="Telefone"
             android:padding="12dp"
+            android:phoneNumber="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ccp"
             app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
         <Button
             android:id="@+id/btnSalvarConato"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="12dp"
-            android:text="Salvar contato"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_bold"
+            android:padding="14dp"
+            android:text="Atualizar "
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnQrCodeContato"
+            app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
+
+        <ImageButton
+            android:id="@+id/btnExcluirContato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/nunito_bold"
+            android:onClick="onClickExcluirContato"
+            android:padding="16dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:text="Excluir"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
 
-        <Button
-            android:id="@+id/btnExcluirContato"
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/btnQrCodeContato"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:onClick="onClickExcluirContato"
-            android:padding="12dp"
-            android:text="Excluir contato"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nunito_bold"
+            android:padding="16dp"
+            android:src="@drawable/ic_baseline_qr_code_2_24"
+            app:layout_constraintStart_toEndOf="@+id/btnExcluirContato"
+            app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
+
+        <ImageView
+            android:id="@+id/ivQrCode"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSalvarConato" />
+            app:layout_constraintTop_toBottomOf="@+id/btnQrCodeContato"
+            app:layout_constraintVertical_bias="0.043"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunito"
+            android:padding="5dp"
+            android:textColor="?android:attr/textColorPrimary"
+            app:ccpDialog_textColor="?android:attr/textColorPrimary"
+            app:ccp_areaCodeDetectedCountry="true"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_autoDetectLanguage="true"
+            app:ccp_autoFormatNumber="true"
+            app:ccp_contentColor="?attr/colorControlNormal"
+            app:ccp_flagBorderColor="@color/green"
+            app:ccp_showFullName="false"
+            app:ccp_showNameCode="false"
+            app:ccp_showPhoneCode="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ProgressBar

@@ -9,9 +9,5 @@
     >
 
     <solid
-        android:color="@android:color/transparent" />
-
-    <stroke
-        android:width="2dp"
-        android:color="?attr/color" />
+        android:color="?attr/colorControlNormal" />
 </shape>

@@ -2,13 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
     android:background="?android:attr/colorBackground"
     android:elevation="0dp"
-    android:onClick="onClickLigar"
     app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +18,7 @@
             android:id="@+id/tvFirstName"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginTop="2dp"
             android:background="@drawable/shape_round_image"
             android:padding="8dp"
             android:textAlignment="center"
@@ -30,28 +29,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <View
             android:id="@+id/tvNome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="22dp"
             android:layout_marginStart="16dp"
-            android:contentDescription="@string/nome_contato"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="?attr/colorControlNormal"
             app:layout_constraintStart_toEndOf="@+id/tvFirstName"
-            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="0dp"
             tools:text="Nome do contato" />
 
-        <TextView
+        <View
             android:id="@+id/etTelefone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="18dp"
             android:layout_marginStart="16dp"
-            android:alpha="0.8"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorControlNormal"
             app:layout_constraintStart_toEndOf="@+id/tvFirstName"
             app:layout_constraintTop_toBottomOf="@+id/tvNome"
             tools:text="(00) 00000-0000" />
